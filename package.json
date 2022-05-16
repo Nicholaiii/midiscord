@@ -1,0 +1,59 @@
+{
+  "name": "midiscord",
+  "license": "MIT",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Play sounds on Discord using midi controllers or a clean graphical user interface.",
+  "author": {
+    "name": "Nicholai Nissen",
+    "email": "nicholainissen@gmail.com",
+    "url": "https://nicholai.dev"
+  },
+  "engines": {
+    "vscode": "^1.22.0",
+    "node": ">=v18.1",
+    "npm": ">=8.8"
+  },
+  "main": "packages/main/dist/index.cjs",
+  "scripts": {
+    "dev": "node scripts/watch.js",
+    "build": "npm run build:main && npm run build:preload && npm run build:renderer",
+    "build:main": "cd ./packages/main && vite build",
+    "build:preload": "cd ./packages/preload && vite build",
+    "build:renderer": "cd ./packages/renderer && vite build",
+    "compile": "cross-env MODE=production npm run build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false",
+    "test": "npm run test:main && npm run test:preload && npm run test:renderer && npm run test:e2e",
+    "test:e2e": "npm run build && vitest run",
+    "test:main": "vitest run -r packages/main --passWithNoTests",
+    "test:preload": "vitest run -r packages/preload --passWithNoTests",
+    "test:renderer": "vitest run -r packages/renderer --passWithNoTests",
+    "lint": "eslint . --ext js,ts,vue",
+    "ts:main": "tsc --noEmit -p packages/main/tsconfig.json",
+    "ts:preload": "tsc --noEmit -p packages/preload/tsconfig.json",
+    "ts:renderer": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
+    "ts": "npm run ts:main && npm run ts:preload && npm run ts:renderer"
+  },
+  "dependencies": {
+    "electron-updater": "4.6.5",
+    "vue": "3.2.33"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.23.0",
+    "@vitejs/plugin-vue": "2.3.3",
+    "@vue/test-utils": "2.0.0-rc.21",
+    "cross-env": "7.0.3",
+    "electron": "17.1.0",
+    "electron-builder": "22.14.13",
+    "electron-devtools-installer": "3.2.0",
+    "eslint": "8.15.0",
+    "eslint-plugin-vue": "8.7.1",
+    "happy-dom": "2.41.0",
+    "nano-staged": "0.8.0",
+    "playwright": "1.22.0",
+    "simple-git-hooks": "2.7.0",
+    "typescript": "4.6.4",
+    "vite": "2.9.9",
+    "vitest": "0.12.6",
+    "vue-tsc": "0.34.15"
+  }
+}
