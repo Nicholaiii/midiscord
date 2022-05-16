@@ -1,5 +1,9 @@
 {
   "recommendations": [
-    "DavidAnson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "Vue.volar"
+  ],
+  "unwantedRecommendations": [
+    "vscode.typescript-language-features"
   ]
 }
