@@ -50,7 +50,6 @@ Follow these steps to get started developing on Midiscord
 
 **Note:** *This project assumes npm* ≥ *8*
 
-
 ## Contributing
 
 Please refer to the [Contribution Guide](CONTRIBUTING.md).
