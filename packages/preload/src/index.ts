@@ -4,3 +4,4 @@
 
 import './nodeCrypto'
 import './versions'
+import './ipc'

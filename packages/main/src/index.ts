@@ -1,7 +1,7 @@
 import { app } from 'electron'
+import { setupIPC } from './ipc'
 import './security-restrictions'
 import { restoreOrCreateWindow } from '/@/mainWindow'
-
 
 /**
  * Prevent multiple instances
@@ -39,6 +39,7 @@ app.on('activate', restoreOrCreateWindow)
  */
 app.whenReady()
   .then(restoreOrCreateWindow)
+  .then(setupIPC)
   .catch((e) => console.error('Failed create window:', e))
 
 

@@ -1,44 +1,16 @@
 <script lang="ts" setup>
-import ReactiveCounter from '/@/components/ReactiveCounter.vue'
-import ReactiveHash from '/@/components/ReactiveHash.vue'
-import ElectronVersions from '/@/components/ElectronVersions.vue'
+import TopBar from '/@/components/TopBar.vue'
 </script>
 
 <template>
-  <img
-    alt="Vue logo"
-    src="../assets/logo.svg"
-    width="150"
-  >
+  <TopBar />
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/debug">Debug</router-link>
+  </nav>
 
-  <p>
-    For a guide and recipes on how to configure / customize this project,<br>
-    check out the
-    <a
-      href="https://github.com/cawa-93/vite-electron-builder"
-      target="_blank"
-    >vite-electron-builder documentation</a>.
-  </p>
-
-  <fieldset>
-    <legend>Test Vue Reactivity</legend>
-    <reactive-counter />
-  </fieldset>
-
-  <fieldset>
-    <legend>Test Node.js API</legend>
-    <reactive-hash />
-  </fieldset>
-
-  <fieldset>
-    <legend>Environment</legend>
-    <electron-versions />
-  </fieldset>
-
-  <p>
-    Edit
-    <code>packages/renderer/src/App.vue</code> to test hot module replacement.
-  </p>
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
 </template>
 
 <style>
@@ -46,13 +18,14 @@ import ElectronVersions from '/@/components/ElectronVersions.vue'
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 60px auto;
-  max-width: 700px;
+  @apply bg-zinc-900;
+  @apply text-zinc-300;
 }
-fieldset {
-  margin: 2rem;
-  padding: 1rem;
+
+body {
+  @apply select-none;
+  @apply bg-zinc-900;
+  @apply text-zinc-300;
 }
+
 </style>

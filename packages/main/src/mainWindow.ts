@@ -5,6 +5,12 @@ import { URL } from 'url'
 async function createWindow() {
   const browserWindow = new BrowserWindow({
     show: false, // Use 'ready-to-show' event to show window
+    frame: false,
+    width: 960,
+    height: 800,
+    minWidth: 200,
+    minHeight: 200,
+    backgroundColor: '#1a1a1a',
     webPreferences: {
       nativeWindowOpen: true,
       webviewTag: false, // The webview tag is not recommended. Consider alternatives like iframe or Electron's BrowserView. https://www.electronjs.org/docs/latest/api/webview-tag#warning
@@ -56,4 +62,6 @@ export async function restoreOrCreateWindow() {
   }
 
   window.focus()
+
+  return window
 }
