@@ -8,5 +8,9 @@
     "**/Thumbs.db": true,
     "node_modules": true,
     "**/dist": true
-  }
+  },
+  "exportall.config.semis": false,
+  "exportall.config.folderListener": [
+    "/packages/common"
+  ]
 }
