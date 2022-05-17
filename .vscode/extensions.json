@@ -3,7 +3,9 @@
     "davidanson.vscode-markdownlint",
     "vue.volar",
     "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "editorconfig.editorconfig",
+    "eliostruyf.vscode-typescript-exportallmodules"
   ],
   "unwantedRecommendations": [
     "vscode.typescript-language-features"
