@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { IPC } from '../../../common'
 function close () {
   console.log('Closing!')
-  window.ipc.send('window:close')
+  window.ipc.send(IPC.AppWindow.close)
 }
 const lol = () => console.log(123123123)
 </script>
