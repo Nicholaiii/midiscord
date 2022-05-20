@@ -1,7 +1,9 @@
+import type { BrowserWindow } from 'electron'
 import { app } from 'electron'
-import { setupIPC } from './ipc'
 import './security-restrictions'
 import { restoreOrCreateWindow } from '/@/mainWindow'
+import { setupIPC } from '/@/ipc'
+import * as Window from './window'
 
 /**
  * Prevent multiple instances
@@ -39,7 +41,7 @@ app.on('activate', restoreOrCreateWindow)
  */
 app.whenReady()
   .then(restoreOrCreateWindow)
-  .then(setupIPC)
+  .then(main)
   .catch((e) => console.error('Failed create window:', e))
 
 
@@ -67,3 +69,12 @@ if (import.meta.env.PROD) {
     .catch((e) => console.error('Failed check updates:', e))
 }
 
+async function main (window: BrowserWindow) {
+  try {
+    const ipc = setupIPC(window)
+    Window.handleIPC(ipc, window)
+
+  } catch (error) {
+    console.error(error)
+  }
+}
