@@ -7,10 +7,12 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "node_modules": true,
-    "**/dist": true
+    "**/dist": true,
+    ".eslintcache": true
   },
   "exportall.config.semis": false,
   "exportall.config.folderListener": [
     "/packages/common"
-  ]
+  ],
+  "prettier.vueIndentScriptAndStyle": false
 }
