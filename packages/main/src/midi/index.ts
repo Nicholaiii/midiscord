@@ -1,11 +1,21 @@
 /* This will strictly only work with CJS require. Vite hates it any other way */
 import type * as JZZ from 'jzz'
 const jzz = require('jzz') as typeof JZZ
+import type { Observer} from 'rxjs'
 import { Subject } from 'rxjs'
-import { MidiCodes } from '../../../common/midi/codes'
 
-type message = ReturnType<typeof jzz.MIDI>
-type MidiEvent = [code: MidiCodes, subject: HexCode, value: number]
+import { MidiCodes } from '../../../common/midi/codes'
+import type { Message, Hex, HexCode, MidiEvent } from './types'
+
+const internalObserver: Observer<MidiEvent> = {
+  next ([code, subject, value]) {
+    console.info(code, `from ${subject}`, `value: ${value}`)
+  },
+  error (error: unknown) {
+    console.error(error)
+  },
+  complete: () => console.info('@midi Subscriber completed'),
+}
 
 export async function initialise() {
   const subject = new Subject<MidiEvent>()
@@ -15,22 +25,16 @@ export async function initialise() {
 
   console.log('@midi Opened:', port.name())
 
-  function handler (msg: message) {
+  function handler (msg: Message) {
     const hex = msg.map(toHex)
     const code = parseCode(hex[0])
     if (code) subject.next([code, hex[1], msg[2]])
   }
 
   await port.connect(handler)
-  subject.subscribe({
-    next([code, subject, value]) {
-      console.info(code, `from ${subject}`, `value: ${value}`)
-    },
-  })
+  subject.subscribe(internalObserver)
 }
 
-type Hex = '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'|'a'|'b'|'c'|'d'|'e'|'f'
-export type HexCode = `${Hex}${Hex}`
 
 function isHexCode(h: Hex | HexCode): h is HexCode {
   return h.length === 2
@@ -40,7 +44,6 @@ function toHex (d: number): HexCode {
   const hex = Number(d).toString(16) as Hex | HexCode
   return isHexCode(hex) ? hex : `0${hex}`
 }
-
 
 const HexCodeTests: [exp: RegExp, code: MidiCodes][] = [
   [/9./, MidiCodes.on],
