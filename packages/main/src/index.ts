@@ -50,7 +50,9 @@ app.whenReady()
 /**
  * Install Vue.js or some other devtools in development mode only
  */
-if (import.meta.env.DEV) {
+/* This module for installing extensions is currently broken */
+/* eslint-disable-next-line no-constant-condition */
+if (false && import.meta.env.DEV) {
   app.whenReady()
     .then(() => import('electron-devtools-installer'))
     .then(({default: installExtension, VUEJS3_DEVTOOLS}) => installExtension(VUEJS3_DEVTOOLS, {
