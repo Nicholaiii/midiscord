@@ -56,4 +56,4 @@ Please refer to the [Contribution Guide](CONTRIBUTING.md).
 
 [nicholai-github]: https://github.com/Nicholaiii
 [nicholai-kofi]: https://ko-fi.com/nicholai
-[discussions]: /discussions
+[discussions]: https://github.com/Nicholaiii/midiscord/blob/main/discussions
