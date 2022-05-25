@@ -38,6 +38,8 @@
   },
   "dependencies": {
     "electron-updater": "4.6.5",
+    "jzz": "^1.5.1",
+    "rxjs": "^7.5.5",
     "vue": "3.2.33",
     "vue-router": "^4.0.15"
   },
