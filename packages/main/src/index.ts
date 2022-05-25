@@ -4,6 +4,7 @@ import './security-restrictions'
 import { restoreOrCreateWindow } from '/@/mainWindow'
 import { setupIPC } from '/@/ipc'
 import * as Window from './window'
+import * as Midi from '/@/midi/index'
 
 /**
  * Prevent multiple instances
@@ -74,6 +75,9 @@ async function main (window: BrowserWindow) {
     const ipc = setupIPC(window)
     Window.handleIPC(ipc, window)
 
+    await Midi.initialise()
+
+    console.info('Ready!')
   } catch (error) {
     console.error(error)
   }
