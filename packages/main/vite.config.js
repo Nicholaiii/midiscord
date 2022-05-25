@@ -30,6 +30,8 @@ const config = {
     rollupOptions: {
       external: [
         'electron',
+        'jzz',
+        'jazz-midi',
         'electron-devtools-installer',
         ...builtinModules.flatMap(p => [p, `node:${p}`]),
       ],
