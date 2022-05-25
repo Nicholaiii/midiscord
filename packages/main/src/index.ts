@@ -2,9 +2,10 @@ import type { BrowserWindow } from 'electron'
 import { app } from 'electron'
 import './security-restrictions'
 import { restoreOrCreateWindow } from '/@/mainWindow'
+
 import { setupIPC } from '/@/ipc'
-import * as Window from './window'
-import * as Midi from '/@/midi/index'
+import * as Window from '/@/window'
+import * as Midi from '/@/midi'
 
 /**
  * Prevent multiple instances
