@@ -1,20 +1,38 @@
 <script setup lang="ts">
-import { IPC } from '../../../common'
+import { useTRPC } from '/@/use/trpc'
+
+const { query } = useTRPC()
+
 function close () {
-  console.log('Closing!')
-  window.ipc.send(IPC.AppWindow.close)
+  query('window:close')
 }
+
 const lol = () => console.log(123123123)
 </script>
 
 <template>
-  <div id="nav" class="flex flex-wrap justify-between items-center bg-zinc-700 text-zinc-100 grow">
+  <div
+    id="nav"
+    class="flex flex-wrap justify-between items-center bg-zinc-700 text-zinc-100 grow"
+  >
     <span class="flex items-center">
-      <img alt="Piano logo" src="../../assets/logo.svg" class="ml-1" width="24" />
-      <h1 @click="lol" class="text-lg self-end ml-1">midiscord</h1>
+      <img
+        alt="Piano logo"
+        src="../../assets/logo.svg"
+        class="ml-1"
+        width="24"
+      >
+      <h1
+        class="text-lg self-end ml-1"
+        @click="lol"
+      >midiscord</h1>
     </span>
-    <button @click="close()" class="justify-self-end mr-1">close</button>
-
+    <button
+      class="justify-self-end mr-1"
+      @click="close()"
+    >
+      close
+    </button>
   </div>
 </template>
 

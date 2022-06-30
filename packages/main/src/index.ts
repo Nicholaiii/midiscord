@@ -3,10 +3,9 @@ import { app } from 'electron'
 import './security-restrictions'
 import { restoreOrCreateWindow } from '/@/mainWindow'
 
-import { setupIPC } from '/@/ipc'
-import * as Window from '/@/window'
+import * as Window from '/@/trpc/window'
 import * as Midi from '/@/midi'
-
+import * as Server from '/@/server'
 /**
  * Prevent multiple instances
  */
@@ -75,10 +74,10 @@ if (import.meta.env.PROD) {
 
 async function main (window: BrowserWindow) {
   try {
-    const ipc = setupIPC(window)
-    Window.handleIPC(ipc, window)
-
+    Window.initialise(window)
     await Midi.initialise()
+
+    Server.listen()
 
     console.info('Ready!')
   } catch (error) {

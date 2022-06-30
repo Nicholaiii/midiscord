@@ -14,6 +14,9 @@
     "paths": {
       "/@/*": [
         "./src/*"
+      ],
+      "/@main/*": [
+        "../main/src/*"
       ]
     },
     "lib": ["ESNext", "dom", "dom.iterable"]
