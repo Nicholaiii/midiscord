@@ -7,33 +7,44 @@ function close () {
   query('window:close')
 }
 
-const lol = () => console.log(123123123)
 </script>
 
 <template>
-  <div
+  <v-system-bar
     id="nav"
-    class="flex flex-wrap justify-between items-center bg-zinc-700 text-zinc-100 grow"
+    window
+    class="mb-22"
   >
-    <span class="flex items-center">
-      <img
-        alt="Piano logo"
-        src="../../assets/logo.svg"
-        class="ml-1"
-        width="24"
-      >
-      <h1
-        class="text-lg self-end ml-1"
-        @click="lol"
-      >midiscord</h1>
-    </span>
-    <button
-      class="justify-self-end mr-1"
+    <v-icon
+      icon="mdi-piano"
+      class="mr-2"
+    />
+
+    <span>midiscord</span>
+
+    <v-spacer />
+
+    <v-btn
+      icon="mdi-minus"
+      variant="text"
+      size="small"
+    />
+
+    <v-btn
+      icon="mdi-checkbox-blank-outline"
+      variant="text"
+      size="small"
+      class="ml-2"
+    />
+
+    <v-btn
+      icon="mdi-close"
+      variant="text"
+      size="small"
+      class="ml-2"
       @click="close()"
-    >
-      close
-    </button>
-  </div>
+    />
+  </v-system-bar>
 </template>
 
 <style scoped>
