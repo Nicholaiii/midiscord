@@ -1,7 +1,9 @@
+const prod = process.env.MODE === 'production'
+
 module.exports = {
   content: [
-  'packages/renderer/src/index.html',
-  'packages/renderer/src/**/*.{vue,js,ts,jsx,tsx}'
+    `${prod ? '' : 'packages/renderer/'}src/index.html`,
+    `${prod ? '' : 'packages/renderer/'}src/**/*.{vue,js,ts,jsx,tsx}`,
   ],
   theme: {
     extend: {},
