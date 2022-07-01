@@ -2,9 +2,15 @@
 import ReactiveCounter from '/@/components/ReactiveCounter.vue'
 import ReactiveHash from '/@/components/ReactiveHash.vue'
 import ElectronVersions from '/@/components/ElectronVersions.vue'
+import ReactiveTimer from '../components/ReactiveTimer.vue'
 </script>
 
 <template>
+  <fieldset>
+    <legend>Test tRPC Subscriptions</legend>
+    <reactive-timer />
+  </fieldset>
+
   <fieldset>
     <legend>Test Vue Reactivity</legend>
     <reactive-counter />
