@@ -17,9 +17,9 @@ const internalObserver: Observer<MidiEvent> = {
   complete: () => console.info('@midi Subscriber completed'),
 }
 
-export async function initialise() {
-  const subject = new Subject<MidiEvent>()
 
+export const MidiSubject = new Subject<MidiEvent>()
+export async function initialise() {
   const midi = await jzz()
   const port = await midi.openMidiIn()
 
@@ -28,11 +28,11 @@ export async function initialise() {
   function handler (msg: Message) {
     const hex = msg.map(toHex)
     const code = parseCode(hex[0])
-    if (code) subject.next([code, hex[1], msg[2]])
+    if (code) MidiSubject.next([code, hex[1], msg[2]])
   }
 
   await port.connect(handler)
-  subject.subscribe(internalObserver)
+  MidiSubject.subscribe(internalObserver)
 }
 
 
