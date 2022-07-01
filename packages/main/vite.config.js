@@ -30,6 +30,7 @@ const config = {
     rollupOptions: {
       external: [
         'electron',
+        'ws',
         'express',
         'jzz',
         'jazz-midi',
