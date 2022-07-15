@@ -4,18 +4,15 @@ import type { Schema } from 'electron-store'
 import Store from 'electron-store'
 
 export interface Configuration {
-  discord: {
-    token: string
-  }
+  discordToken: string
+  version: `${number}.${number}.${number}`
 }
 
 export const configSchema: Schema<Configuration> = {
-  discord: {
-    type: 'object',
-    properties: {
-      token: { type: 'string' },
-    },
-    additionalProperties: false,
+  discordToken: { type: 'string' },
+  version: {
+    type: 'string',
+    default: require('../../../package.json').version,
   },
 }
 
