@@ -7,7 +7,6 @@ export const midiRouter = createRouter()
   .subscription('events', {
     resolve () {
       return new Subscription<MidiEvent>(emit => {
-        console.log('Got a subscription')
 
         const midiSub = MidiSubject.subscribe({
           next: emit.data,
