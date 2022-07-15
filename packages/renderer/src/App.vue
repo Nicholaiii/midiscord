@@ -18,10 +18,10 @@ const openGithub = () => window.open('https://github.com/nicholaiii/midiscord', 
         </v-btn>
       </v-app-bar>
       <v-container fluid>
+        <!-- component matched by the route will render here -->
         <router-view />
       </v-container>
     </v-main>
-    <!-- component matched by the route will render here -->
     <v-footer
       app
       class="d-flex flex-column bg-deep-purple-lighten-1 pa-0"
