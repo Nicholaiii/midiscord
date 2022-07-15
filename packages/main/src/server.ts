@@ -10,8 +10,13 @@ import { appRouter, createContext } from './trpc'
 
 const app = express()
 
+const viteUrl = import.meta.env.VITE_DEV_SERVER_URL
+
 app.use(cors({
-  origin: ['http://localhost:1312', 'http://localhost:3000'],
+  origin: [
+    'http://localhost:1312',
+    ...(viteUrl ? [new URL(viteUrl).origin] : []),
+  ],
 }))
 
 app.use('/trpc', trpcExpress.createExpressMiddleware({
