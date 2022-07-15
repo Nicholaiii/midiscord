@@ -35,6 +35,7 @@ const config = {
         'jzz',
         'jazz-midi',
         'electron-store',
+        'discord.js',
         'electron-devtools-installer',
         ...builtinModules.flatMap(p => [p, `node:${p}`]),
       ],

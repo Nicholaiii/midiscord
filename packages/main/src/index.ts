@@ -6,6 +6,9 @@ import { restoreOrCreateWindow } from '/@/mainWindow'
 import * as Window from '/@/trpc/window'
 import * as Midi from '/@/midi'
 import * as Server from '/@/server'
+import * as Discord from '/@/discord'
+import { ConfigStore } from '/@/config/store'
+
 /**
  * Prevent multiple instances
  */
@@ -79,7 +82,10 @@ async function main (window: BrowserWindow) {
 
     Server.listen()
 
-    console.info('Ready!')
+    const token = ConfigStore.get('discordToken')
+    await Discord.initialise(token)
+
+    console.info('Midiscord Initialised!')
   } catch (error) {
     console.error(error)
   }
