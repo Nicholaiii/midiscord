@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import ReactiveCounter from '/@/components/ReactiveCounter.vue'
-import ReactiveHash from '/@/components/ReactiveHash.vue'
-import ElectronVersions from '/@/components/ElectronVersions.vue'
-import ReactiveTimer from '../components/ReactiveTimer.vue'
-import MidiInspector from '../components/MidiInspector.vue'
+import AppConfig from '/@/components/Debug/AppConfig.vue'
+import MidiInspector from '/@/components/Debug/MidiInspector.vue'
+import ReactiveCounter from '/@/components/Debug/ReactiveCounter.vue'
+import ReactiveHash from '/@/components/Debug/ReactiveHash.vue'
+import ElectronVersions from '/@/components/Debug/ElectronVersions.vue'
+import ReactiveTimer from '/@/components/Debug/ReactiveTimer.vue'
 </script>
 
 <template>
+  <fieldset>
+    <legend>Application Configuration</legend>
+    <app-config />
+  </fieldset>
+
   <fieldset>
     <legend>Test tRPC Subscriptions</legend>
     <reactive-timer />

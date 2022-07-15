@@ -9,22 +9,14 @@ const hashedString = computed(() => window.nodeCrypto.sha256sum(rawString.value)
 </script>
 
 <template>
-  <label>
-    Raw value
-    <input
-      v-model="rawString"
-      type="text"
-    >
-  </label>
-  <br>
-  <label>
-    Hashed by node:crypto
-    <input
-      v-model="hashedString"
-      type="text"
-      readonly
-    >
-  </label>
-  <br><br>
+  <v-text-field
+    v-model="rawString"
+    label="Raw value"
+  />
+  <v-text-field
+    v-model="hashedString"
+    label="Hashed by node:crypto"
+    readonly
+  />
   <code>packages/renderer/src/components/ReactiveHash.vue</code>
 </template>
