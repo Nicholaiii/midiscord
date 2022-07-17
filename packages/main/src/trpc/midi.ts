@@ -1,6 +1,6 @@
 import { Subscription } from '@trpc/server'
 import { createRouter } from './create-router'
-import { MidiSubject } from '/@/midi'
+import { MidiSubject } from '/@/midi/subject'
 import type { MidiEvent } from '/@/midi/types'
 
 export const midiRouter = createRouter()

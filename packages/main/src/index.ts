@@ -7,7 +7,7 @@ import * as Window from '/@/trpc/window'
 import * as Midi from '/@/midi'
 import * as Server from '/@/server'
 import * as Discord from '/@/discord'
-import { ConfigStore } from '/@/config/store'
+import * as Config from '/@/config'
 
 /**
  * Prevent multiple instances
@@ -81,7 +81,7 @@ async function main (window: BrowserWindow) {
     await Midi.initialise()
 
     Server.listen()
-
+    const { ConfigStore } = Config.initialise()
     const token = ConfigStore.get('discordToken')
     await Discord.initialise(token)
 

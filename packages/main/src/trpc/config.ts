@@ -1,7 +1,7 @@
 import { Subscription } from '@trpc/server'
+import type { ConfigMsg } from '/@/config/types'
+import { ConfigSubject } from '/@/config/subject'
 import { createRouter } from './create-router'
-import type { ConfigMsg } from '/@/config/store'
-import { ConfigSubject } from '/@/config/store'
 
 export const configRouter = createRouter()
   .mutation('open', {

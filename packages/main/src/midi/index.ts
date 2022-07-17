@@ -1,10 +1,11 @@
 /* This will strictly only work with CJS require. Vite hates it any other way */
-import type * as JZZ from 'jzz'
 const jzz = require('jzz') as typeof JZZ
-import type { Observer} from 'rxjs'
-import { Subject } from 'rxjs'
 
-import { MidiCodes } from '../../../common/midi/codes'
+import type * as JZZ from 'jzz'
+import type { Observer} from 'rxjs'
+
+import { MidiCodes } from '/@common/midi/codes'
+import { MidiSubject } from './subject'
 import type { Message, Hex, HexCode, MidiEvent } from './types'
 
 const internalObserver: Observer<MidiEvent> = {
@@ -18,7 +19,6 @@ const internalObserver: Observer<MidiEvent> = {
 }
 
 
-export const MidiSubject = new Subject<MidiEvent>()
 export async function initialise() {
   const midi = await jzz()
   const port = await midi.openMidiIn()
