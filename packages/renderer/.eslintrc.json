@@ -15,7 +15,7 @@
   },
   "rules": {
     "vue/multi-word-component-names": ["error", {
-      "ignores": ["Debug"]
+      "ignores": ["Debug", "Home", "Config"]
     }]
   }
 }
