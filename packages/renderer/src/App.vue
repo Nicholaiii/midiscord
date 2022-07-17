@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import TopBar from '/@/components/TopBar.vue'
-
-const openGithub = () => window.open('https://github.com/nicholaiii/midiscord', '_blank')
+import Footer from '/@/components/AppFooter.vue'
 
 </script>
 
@@ -22,25 +21,7 @@ const openGithub = () => window.open('https://github.com/nicholaiii/midiscord', 
         <router-view />
       </v-container>
     </v-main>
-    <v-footer
-      app
-      class="d-flex flex-column bg-deep-purple-lighten-1 pa-0"
-      height="32"
-    >
-      <div class="d-flex w-100 align-center px-4">
-        <strong class="text-white">midiscord</strong>
-
-        <v-spacer />
-
-        <v-btn
-          class="mx-4 text-white"
-          icon="mdi-github"
-          variant="plain"
-          size="small"
-          @click="openGithub"
-        />
-      </div>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
