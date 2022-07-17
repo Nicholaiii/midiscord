@@ -14,5 +14,5 @@ const openInEditor = () => mutation('config:open')
     Open in Editor
   </v-btn>
   <br><br>
-  <code>packages/renderer/src/components/AppConfig.vue.vue</code>
+  <code>packages/renderer/src/components/AppConfig.vue</code>
 </template>
