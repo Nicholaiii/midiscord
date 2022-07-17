@@ -13,9 +13,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "/@/*": [
-        "./src/*"
-      ]
+      "/@/*": [ "./src/*" ],
+      "/@common/*": [ "../common/*"]
     },
   },
   "include": [
