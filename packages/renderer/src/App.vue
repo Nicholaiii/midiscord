@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import TopBar from '/@/components/TopBar.vue'
 import Footer from '/@/components/AppFooter.vue'
+import { isElectron } from '/@/util/is-electron'
 
 </script>
 
 <template>
   <v-app :full-height="false">
-    <TopBar />
+    <TopBar v-if="isElectron" />
     <v-main>
       <v-app-bar>
         <v-btn to="/">

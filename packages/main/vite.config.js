@@ -38,6 +38,7 @@ const config = {
         'electron-store',
         'discord.js',
         'electron-devtools-installer',
+        'express-http-proxy',
         ...builtinModules.flatMap(p => [p, `node:${p}`]),
       ],
       output: {
