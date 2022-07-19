@@ -73,7 +73,7 @@ const setupMainPackageWatcher = ({config: {server}}) => {
         spawnProcess = null
       }
 
-      spawnProcess = spawn(String(electronPath), ['.']);
+      spawnProcess = spawn(String(electronPath), ['.'])
 
       spawnProcess.stdout.on('data', d => d.toString().trim() && logger.warn(d.toString(), {timestamp: true}))
       spawnProcess.stderr.on('data', d => {
@@ -87,8 +87,8 @@ const setupMainPackageWatcher = ({config: {server}}) => {
       })
 
       // Stops the watch script when the application has been quit
-      spawnProcess.on('exit', process.exit);
-    }
+      spawnProcess.on('exit', process.exit)
+    },
   })
 }
 
