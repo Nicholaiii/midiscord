@@ -6,6 +6,9 @@ import PadButton from '/@/components/Board/PadButton.vue'
 const pads = ref<Pad[]>([{
   name: 'First',
   file: 'C:\\',
+}, {
+  name: 'Second',
+  file: 'D:\\',
 }])
 </script>
 
