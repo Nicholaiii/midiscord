@@ -10,8 +10,8 @@ import { isElectron } from '/@/util/is-electron'
     <TopBar v-if="isElectron" />
     <v-main>
       <v-app-bar>
-        <v-btn to="/">
-          Home
+        <v-btn to="/board">
+          Board
         </v-btn>
         <v-btn to="/debug">
           Debug
