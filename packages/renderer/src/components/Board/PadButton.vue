@@ -7,9 +7,15 @@ defineProps<{
 </script>
 
 <template>
-  <div>
-    {{ pad.name }}
-  </div>
+  <v-card :color="pad.color">
+    <v-responsive :aspect-ratio="1/1">
+      <v-card-title
+        class="text-white"
+      >
+        {{ pad.name }}
+      </v-card-title>
+    </v-responsive>
+  </v-card>
 </template>
 
 <style scoped>
