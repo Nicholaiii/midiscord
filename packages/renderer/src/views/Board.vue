@@ -11,6 +11,7 @@ const pads = ref<Pad[]>([{
   name: 'Second',
   file: 'D:\\',
   color: 'indigo',
+  image: '/assets/gradient.jpg',
 }])
 </script>
 

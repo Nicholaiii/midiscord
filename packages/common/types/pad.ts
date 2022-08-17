@@ -24,4 +24,5 @@ export interface Pad {
   name: string
   file: string
   color: colors
+  image?: string
 }
