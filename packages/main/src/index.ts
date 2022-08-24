@@ -77,15 +77,16 @@ if (import.meta.env.PROD) {
 
 async function main (window: BrowserWindow) {
   try {
-    Window.initialise(window)
-    await Midi.initialise()
-
     Server.listen()
+    Window.initialise(window)
+    await Midi.initialise().catch(console.error)
+
     const { ConfigStore } = Config.initialise()
     const token = ConfigStore.get('discordToken')
     await Discord.initialise(token)
 
     console.info('Midiscord Initialised!')
+    console.info('Make fetch happen:', (typeof fetch) !== 'undefined' ? 'yes!' : 'no :(')
   } catch (error) {
     console.error(error)
   }
