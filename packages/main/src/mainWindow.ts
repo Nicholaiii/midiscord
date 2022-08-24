@@ -1,4 +1,4 @@
-import { BrowserWindow } from 'electron'
+import { app, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { URL } from 'url'
 
@@ -12,8 +12,11 @@ async function createWindow() {
     minHeight: 200,
     backgroundColor: '#1a1a1a',
     webPreferences: {
+      sandbox: false,
+      contextIsolation: true,
+      nodeIntegration: false,
       webviewTag: false, // The webview tag is not recommended. Consider alternatives like iframe or Electron's BrowserView. https://www.electronjs.org/docs/latest/api/webview-tag#warning
-      preload: join(__dirname, '../../preload/dist/index.cjs'),
+      preload: join(app.getAppPath(), 'packages/preload/dist/index.cjs'),
     },
   })
 
